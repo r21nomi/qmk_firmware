@@ -1,6 +1,6 @@
 # Custom Keymap for Ergodox EZ
-### Base Layer
-![](./art/base_layer.png)
+### Basic Layer
+![](./art/basic_layer.png)
 
 ### Layer 1
 ![](./art/layer_1.png)
