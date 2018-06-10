@@ -57,7 +57,8 @@ util/Win_Check_Output.txt
 .tags
 
 # ignore image files
-*.png
+/**/*.png
+!/**/r21nomi/**/*.png
 *.jpg
 *.gif
 
