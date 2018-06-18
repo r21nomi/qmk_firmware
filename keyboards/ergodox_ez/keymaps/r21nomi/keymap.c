@@ -40,8 +40,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | Esc  | LGui |       |   ←  |   →  |
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      | Home |       |   ↑  |      |      |
- *                                 |Backs | Del  |------|       |------| Space| Enter|
- *                                 |ace/L1|      | undo |       |   ↓  |      | /L1  |
+ *                                 |Del/L1| Space|------|       |------| Space| Backs|
+ *                                 |      |      | undo |       |   ↓  |      |ace/L1|
  *                                 `--------------------'       `--------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -53,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_CAPSLOCK,    KC_A,    KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,        KC_Z,    KC_X,   KC_C,   KC_V,   KC_B,   LGUI(KC_C),
         LT(SYMB,KC_GRV),KC_LCTL, KC_QUOT,KC_LALT,KC_LGUI,
-                                                             KC_ESC, KC_LGUI,
-                                                                     KC_HOME,
-                                          LT(SYMB, KC_BSPC), KC_DEL, LGUI(KC_Z),
+                                                            KC_ESC, KC_LGUI,
+                                                                    KC_HOME,
+                                          LT(SYMB, KC_DEL), KC_SPC, LGUI(KC_Z),
         // right hand
              KC_RGHT,     KC_6, KC_7,   KC_8,   KC_9,   KC_0,    KC_MINS,
              TG(SYMB),    KC_Y, KC_U,   KC_I,   KC_O,   KC_P,    KC_BSLS,
@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 KC_RGUI,KC_RALT,KC_LBRC,KC_RBRC, KC_FN1,
              KC_LEFT, KC_RGHT,
              KC_UP,
-             KC_DOWN, KC_SPC, LT(SYMB, KC_ENT)
+             KC_DOWN, KC_SPC, LT(SYMB, KC_BSPC)
     ),
 /* Keymap 1: Symbol Layer
  *
