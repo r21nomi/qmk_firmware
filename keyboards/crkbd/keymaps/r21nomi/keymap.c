@@ -68,23 +68,34 @@ enum macro_keycodes {
 #define KC_GUIEI GUI_T(KC_LANG2)
 #define KC_ALTKN ALT_T(KC_LANG1)
 
+/**
+ * Keycodes Overview
+ * https://github.com/qmk/qmk_firmware/blob/master/docs/keycodes.md
+ *
+ * Build command
+ * $ make crkbd:r21nomi
+ *
+ * Upload command
+ * $ make crkbd:r21nomi:avrdude
+ */
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Qwerty
      * ,-----------------------------------------.                ,-------------------------------------------.
      * | Tab  |   Q  |   W  |   E  |   R  |   T  |                |   Y  |   U  |   I  |   O  |   P  |    \   |
      * |------+------+------+------+------+------|                |------+------+------+------+------+--------|
-     * | Caps |   A  |   S  |   D  |   F  |   G  |                |   H  |   J  |   K  |   L  |   ;  |Enter/L2|
+     * | Ctrl |   A  |   S  |   D  |   F  |   G  |                |   H  |   J  |   K  |   L  |   ;  |Enter/L2|
      * |------+------+------+------+------+------|                |------+------+------+------+------+--------|
      * |LShift|   Z  |   X  |   C  |   V  |   B  |                |   N  |   M  |   ,  |   .  |   /  | RShift |
      * `-------------------------------------------------. ,--------------------------------------------------'
-     *                             |  Cmd |Ecs/alt|Del/L1| |Bsp/L1|  spc |  Cmd |
-     *                             `---------------------' `--------------------'
+     *                          | Cmd | Del/L1 | Ecs/alt | | spc/Cmd | Bsp/L1 | Cmd |
+     *                          `------------------------' `------------------------'
      */
   [_QWERTY] = LAYOUT(
-        KC_TAB,      KC_Q, KC_W, KC_E, KC_R, KC_T,                KC_Y, KC_U, KC_I,    KC_O,   KC_P,    KC_BSLS,
-        KC_CAPSLOCK, KC_A, KC_S, KC_D, KC_F, KC_G,                KC_H, KC_J, KC_K,    KC_L,   KC_SCLN, LT(_NAV, KC_ENT),
-        KC_LSFT,     KC_Z, KC_X, KC_C, KC_V, KC_B,                KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
-                     KC_LGUI, ALT_T(KC_ESC), LT(_SYMB, KC_DEL),   LT(_SYMB, KC_BSPC), KC_SPC, KC_RGUI
+        KC_TAB,  KC_Q, KC_W, KC_E, KC_R, KC_T,       KC_Y, KC_U, KC_I,    KC_O,   KC_P,    KC_BSLS,
+        KC_LCTL, KC_A, KC_S, KC_D, KC_F, KC_G,       KC_H, KC_J, KC_K,    KC_L,   KC_SCLN, LT(_NAV, KC_ENT),
+        KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B,       KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
+        KC_LGUI, LT(_SYMB, KC_DEL), ALT_T(KC_ESC),   LGUI_T(KC_SPC), LT(_SYMB, KC_BSPC), KC_RGUI
   ),
 
   /* SYMBOLS
@@ -95,14 +106,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+------|                |------+------+------+------+------+-------|
      * |LShift|   %  |   ^  |   [  |   ]  |   ~  |                |   0  |   1  |   2  |   3  |   *  |RShift |
      * `-------------------------------------------------. ,-------------------------------------------------'
-     *                            |  Cmd | Ecs/alt|  Del | |Backsp|   0  |  Cmd |
-     *                            `----------------------' `--------------------'
+     *                          | Caps |  Del   | Ecs    | | spc |   Bsp  | Cmd |
+     *                          `------------------------' `--------------------'  
      */
   [_SYMB] = LAYOUT(
         KC_QUOT, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,     KC_TRNS, KC_7, KC_8, KC_9, KC_PLUS, KC_TRNS,
         KC_AMPR, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,      KC_TRNS, KC_4, KC_5, KC_6, KC_MINS, KC_EQL,
         KC_LSFT, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD,     KC_0,    KC_1, KC_2, KC_3, KC_ASTR, KC_RSFT,
-                             KC_LGUI, ALT_T(KC_ESC), KC_DEL,      KC_BSPC, KC_0, KC_RGUI
+                                KC_CAPSLOCK, KC_DEL, KC_ESC,      KC_SPC, KC_BSPC, KC_RGUI
   ),
 
   /* NAVIGATION
@@ -117,22 +128,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                               `-----------------------' `--------------------'
      */
   [_NAV] = LAYOUT(
-        KC_TRNS, KC_TRNS,    LGUI(LSFT(KC_LCBR)), KC_UP,   LGUI(LSFT(KC_RCBR)), KC_TRNS,       KC_TRNS, KC_MS_U, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS,    LGUI(LSFT(KC_LCBR)), KC_UP,   LGUI(LSFT(KC_RCBR)), KC_TRNS,       KC_TRNS, KC_TRNS, KC_MS_U, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, RCTL(KC_A), KC_LEFT,             KC_DOWN, KC_RIGHT,            RCTL(KC_E),    KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS,    KC_TRNS,             KC_PGDN, KC_TRNS,             KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                                                              KC_TRNS, KC_TRNS, KC_BTN1,       KC_BTN2, KC_SPC, KC_TRNS
-  ),
+        KC_TRNS, KC_TRNS,    KC_TRNS,             KC_PGDN, KC_TRNS,             KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_BTN1,       KC_BTN2, KC_SPC, KC_TRNS ),
 
-  [_ADJUST] = LAYOUT_kc( \
-  //,-----------------------------------------.                ,-----------------------------------------.
-        RST,  LRST, XXXXX, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LTOG,  LHUI,  LSAI,  LVAI, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
-  //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      LSMOD,  LHUD,  LSAD,  LVAD, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
-  //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
-                              //`--------------------'  `--------------------'
+  /* ---
+     * ,---------------------------------------------.                ,------------------------------------------.
+     * |      |      |        |      |        |      |                |      |      |      |      |      |       |
+     * |------+------+--------+------+--------+------|                |------+------+------+------+------+-------|
+     * |      |      |        |      |        |      |                |      |      |      |      |      |       |
+     * |------+------+--------+------+--------+------|                |------+------+------+------+------+-------|
+     * |      |      |        |      |        |      |                |      |      |      |      |      |       |
+     * `-----------------------------------------------------. ,-------------------------------------------------'
+     *                               |        |      |       | |      |      |      |
+     *                               `-----------------------' `--------------------'
+     */
+  [_ADJUST] = LAYOUT(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                   KC_TRNS, KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS
   )
 };
 
