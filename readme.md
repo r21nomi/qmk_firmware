@@ -1,6 +1,7 @@
 # Custom Keymaps of r21nomi
 - [ErgoDox EZ](https://github.com/r21nomi/qmk_firmware/tree/master/keyboards/ergodox_ez/keymaps/r21nomi)
 - [Crkbd](https://github.com/r21nomi/qmk_firmware/tree/master/keyboards/crkbd/keymaps/r21nomi)
+- [Fortitude60](https://github.com/r21nomi/qmk_firmware/tree/master/keyboards/fortitude60/keymaps/r21nomi)
 
 # Quantum Mechanical Keyboard Firmware
 
