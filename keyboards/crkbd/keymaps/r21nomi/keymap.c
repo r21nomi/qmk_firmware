@@ -88,14 +88,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+------|                |------+------+------+------+------+--------|
      * |LShift|   Z  |   X  |   C  |   V  |   B  |                |   N  |   M  |   ,  |   .  |   /  | RShift |
      * `-------------------------------------------------. ,--------------------------------------------------'
-     *                     | MHEN/alt | Del/L1 | Ecs/Cmd | | spc/Cmd | Bsp/L1 | HENK |
-     *                     `-----------------------------' `-------------------------'
+     *                     | MHEN/alt | Del/L1 | Ecs/Cmd | | spc/L2 | Bsp/L1 | HENK |
+     *                     `-----------------------------' `------------------------'
      */
   [_QWERTY] = LAYOUT(
         LT(_ADJUST, KC_TAB),      KC_Q, KC_W, KC_E, KC_R, KC_T,       KC_Y, KC_U, KC_I,    KC_O,   KC_P,    LT(_ADJUST, KC_BSLS),
         KC_CAPSLOCK, KC_A, KC_S, KC_D, KC_F, KC_G,       KC_H, KC_J, KC_K,    KC_L,   KC_SCLN, LT(_NAV, KC_ENT),
         KC_LSFT,     KC_Z, KC_X, KC_C, KC_V, KC_B,       KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
-            ALT_T(KC_MHEN), LT(_SYMB, KC_DEL), LGUI_T(KC_ESC),   RGUI_T(KC_SPC), LT(_SYMB, KC_BSPC), KC_HENK
+            ALT_T(KC_MHEN), LT(_SYMB, KC_DEL), LGUI_T(KC_ESC),   LT(_NAV, KC_SPC), LT(_SYMB, KC_BSPC), KC_HENK
   ),
 
   /* SYMBOLS
