@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+----------+--------+-------------------+--------+------+------+------+------+--------|
  * |LShift|   Z  |   X  |   C  |     V    |    B   |    [    |    ]    |   N    |   M  |   ,  |   .  |   /  | RShift |
  * `-------------+------+------+----------+--------+---------+---------+--------+------+------+------+---------------'
- *               |  GUI | Ctrl | MHEN/alt | Del/L1 | Ecs/Cmd | spc/Cmd | Bsp/L1 | HENK |  Alt |  GUI |
+ *               |  GUI | Ctrl | MHEN/alt | Del/L1 | Ecs/Cmd | spc/L2  | Bsp/L1 | HENK |  Alt |  GUI |
  *               `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT(
@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,      KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,                                     KC_Y,  KC_U,  KC_I,    KC_O,   KC_P,    KC_BSPC,
   KC_CAPSLOCK, KC_A,  KC_S,  KC_D,  KC_F,  KC_G,                                     KC_H,  KC_J,  KC_K,    KC_L,   KC_SCLN, LT(_NAV, KC_ENT),
   KC_LSFT,     KC_Z,  KC_X,  KC_C,  KC_V,  KC_B, KC_LBRC,                   KC_RBRC, KC_N,  KC_M,  KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
-  KC_LGUI, KC_LCTL, ALT_T(KC_MHEN), LT(_SYMB, KC_DEL), LGUI_T(KC_ESC),  RGUI_T(KC_SPC), LT(_SYMB, KC_BSPC), KC_HENK, KC_RALT, KC_RGUI
+  KC_LGUI, KC_LCTL, ALT_T(KC_MHEN), LT(_SYMB, KC_DEL), LGUI_T(KC_ESC),  LT(_NAV, KC_SPC), LT(_SYMB, KC_BSPC), KC_HENK, KC_RALT, KC_RGUI
 ),
 
 /* Symbol
@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+--------+------+--------+------+-------------+------+------+------+------+------+------|
  * |      |      |        |PgDown|        |      |      |      |      |      |      |      |      |      |
  * `-------------+--------+------+--------+------+------+------+------+------+------+------+-------------'
- *               |        |      |        |      | Lclk | Rclk |      |      |      |      |
+ *               |        |      |        | Lclk |      |      | Rclk |      |      |      |
  *               `-------------------------------------------------------------------------'
  */
 [_NAV] = LAYOUT(
@@ -93,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______,    LGUI(LSFT(KC_LCBR)), KC_UP,   LGUI(LSFT(KC_RCBR)), _______,                     _______, _______, KC_MS_U, _______, _______, _______,
   _______, RCTL(KC_A), KC_LEFT,             KC_DOWN, KC_RIGHT,            RCTL(KC_E),                  _______, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,
   _______, _______,    _______,             KC_PGDN, _______,             _______,  _______, _______,  _______, _______, _______, _______, _______, _______,
-                                                _______, _______, _______, _______, KC_BTN1, KC_BTN2,  _______, _______, _______, _______
+                                                _______, _______, _______, KC_BTN1, _______,  _______, KC_BTN2, _______, _______, _______
 ),
 
 /* Adjust (Lower + Raise)
