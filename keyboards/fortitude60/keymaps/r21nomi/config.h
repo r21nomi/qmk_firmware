@@ -30,6 +30,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_TERM 100
 
+#define RGB_DI_PIN D3
 #define USE_SERIAL_PD2
 #undef RGBLED_NUM
 #define RGBLIGHT_ANIMATIONS
