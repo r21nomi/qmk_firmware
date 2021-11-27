@@ -16,6 +16,17 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/**
+* Keycodes Overview
+* https://github.com/qmk/qmk_firmware/blob/master/docs/keycodes.md
+*
+* Compile command:
+* $ qmk compile -kb crkbd -km r21nomi_mac
+*
+* Upload command:
+* $ qmk flash -kb crkbd -km r21nomi_mac
+*/
+
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 
