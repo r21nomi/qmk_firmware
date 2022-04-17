@@ -1,0 +1,17 @@
+macro
+\D(KC_LGUI)\U(KC_LGUI)\D(KC_LSFT)\U(KC_LSFT)\T(KC_LBRC)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
