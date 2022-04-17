@@ -11,4 +11,4 @@
 "central":{"max_interval":20,"min_interval":10,"slave_latency":0},
 "led":{"pin":1,"num":10},
 "keymap":{"locale":"US","use_ascii":0},
-"reserved":[0,0,15,3,0,0,0,0]}}
+"reserved":[0,0,15,5,0,0,0,0]}}
