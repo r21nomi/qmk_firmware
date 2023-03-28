@@ -29,6 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 #include <stdio.h>
+#include "keymap_japanese.h"
 
 #define _QWERTY 0
 #define _SYMB 1
@@ -51,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LT(_ADJUST, KC_TAB), KC_Q, KC_W, KC_E, KC_R, KC_T,       KC_Y, KC_U, KC_I,    KC_O,   KC_P,    LT(_ADJUST, KC_BSLS),
         KC_LCTL,             KC_A, KC_S, KC_D, KC_F, KC_G,       KC_H, KC_J, KC_K,    KC_L,   KC_SCLN, LT(_NAV, KC_ENT),
         KC_LSFT,             KC_Z, KC_X, KC_C, KC_V, KC_B,       KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
-        ALT_T(KC_MHEN), LT(_SYMB, KC_DEL), LGUI_T(KC_ESC),       LT(_NAV, KC_SPC), LT(_SYMB, KC_BSPC), KC_HENK
+        ALT_T(JP_MHEN), LT(_SYMB, KC_DEL), LGUI_T(KC_ESC),       LT(_NAV, KC_SPC), LT(_SYMB, KC_BSPC), JP_HENK
   ),
 
   /* SYMBOLS
@@ -69,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_QUOT, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,     KC_TRNS, KC_7, KC_8, KC_9, KC_PLUS, KC_TRNS,
         KC_AMPR, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,      KC_TRNS, KC_4, KC_5, KC_6, KC_MINS, KC_EQL,
         KC_LSFT, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD,     KC_0,    KC_1, KC_2, KC_3, KC_ASTR, KC_RSFT,
-                                KC_CAPSLOCK, KC_DEL, KC_ESC,      KC_SPC, KC_BSPC, KC_0
+                                   JP_CAPS, KC_DEL,  KC_ESC,      KC_SPC, KC_BSPC, KC_0
   ),
 
   /* NAVIGATION
@@ -196,13 +197,14 @@ void oled_render_logo(void) {
     oled_write_P(crkbd_logo, false);
 }
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
     if (is_keyboard_master()) {
         oled_render_layer_state();
         oled_render_keylog();
     } else {
         oled_render_logo();
     }
+    return false;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
