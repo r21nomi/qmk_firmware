@@ -31,8 +31,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USE_SERIAL_PD2
 
 #define PREVENT_STUCK_MODIFIERS
-#define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 140
+// #define QUICK_TAP_TERM 0
+#define HOLD_ON_OTHER_KEY_PRESS
 
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_EFFECT_BREATHING
